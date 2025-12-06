@@ -11,22 +11,23 @@ export default defineConfig(({ mode }) => {
         port: 3000,
         host: '0.0.0.0',
       },
-      plugins: [react(),
-            copy({
-      targets: [
-        {
-          src: 'js/**/*', // 项目根目录的js文件夹（所有文件）
-          dest: 'dist/js', // 复制到dist/js
-          overwrite: true
-        },
-        {
-          src: 'public/css/**/*', // 项目根目录的css文件夹（所有文件）
-          dest: 'dist/css', // 复制到dist/css
-          overwrite: true
-        }
-      ],
-      verbose: true // 打印复制日志（方便看结果）
-    })
+      plugins: [
+        react(),
+        copy({
+          targets: [
+            {
+              src: 'public/js/**/*',
+              dest: 'dist/js',
+              overwrite: true
+            },
+            {
+              src: 'public/css/**/*',
+              dest: 'dist/css',
+              overwrite: true
+            }
+          ],
+          verbose: true
+        })
       ],
       define: {
         'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
