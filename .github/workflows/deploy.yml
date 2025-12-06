@@ -5,6 +5,11 @@ on:
     branches:
       - main  # 改成你的主分支名称（通常是 main 或 master）
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
