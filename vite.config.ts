@@ -6,7 +6,7 @@ import { copy } from 'vite-plugin-copy';
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
     return {
-      base: '/pixel-art-app/',  // GitHub Pages 子路径部署（改成你的仓库名）
+      base: '/pixel-art-editor/',  // GitHub Pages 子路径部署
       server: {
         port: 3000,
         host: '0.0.0.0',
@@ -17,6 +17,11 @@ export default defineConfig(({ mode }) => {
         {
           src: 'js/**/*', // 项目根目录的js文件夹（所有文件）
           dest: 'dist/js', // 复制到dist/js
+          overwrite: true
+        },
+        {
+          src: 'public/css/**/*', // 项目根目录的css文件夹（所有文件）
+          dest: 'dist/css', // 复制到dist/css
           overwrite: true
         }
       ],
